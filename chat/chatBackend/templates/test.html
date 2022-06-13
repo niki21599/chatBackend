@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function test() {
+            let token = "Token 2ab5580c215c6cabe52e8358f4b402f2af1d3646"
+            let formData = new FormData()
+            formData.append("chat_id", 3)
+            formData.append("text", "Ja Moin zsm")
+
+            let response = await fetch("/message/add", {
+                method: "POST",
+                headers: {
+                    Authorization: token
+                },
+                body: formData
+            })
+            let result = await response.json()
+            console.log("Response", result);
+        }
+    </script>
+</head>
+
+<body onload="test()">
+    <h1></h1>
+</body>
+
+</html>
