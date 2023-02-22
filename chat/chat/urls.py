@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
-from chatBackend.views import testHtml, register, get_chats, get_messages, get_users_without_chat, post_chat, post_message, get_users,get_user_id, get_last_message
+from chatBackend.views import testHtml, register, get_chats, get_messages, get_users_without_chat, post_chat, post_message, get_users,get_user_id, get_last_message, create_guest_chats
 
 
 urlpatterns = [
@@ -31,6 +31,7 @@ urlpatterns = [
     path("users/add", get_users_without_chat),
     path("users/get", get_users),
     path("message/get/last", get_last_message),
-    path("user_id/get", get_user_id)
+    path("user_id/get", get_user_id), 
+    path("guestchat/add", create_guest_chats)
 
 ]

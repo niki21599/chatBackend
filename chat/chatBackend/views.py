@@ -165,3 +165,47 @@ def get_user_id(request):
     user_id = user.pk
 
     return HttpResponse(user_id, content_type='application/json')
+
+
+@api_view(['POST'])
+@permission_classes((IsAuthenticated, ))
+@csrf_exempt
+def create_guest_chats(request):
+
+
+
+
+    if request.method == "POST":
+        
+        user = request.user
+
+        second_user1 = User.objects.get(pk=1)
+        chat = Chat.objects.create(user_1=user, user_2=second_user1)
+        message = Message.objects.create(sender=user, chat=chat, text="Hallo")
+        message = Message.objects.create(sender=second_user1, chat=chat, text="Hi")
+        message = Message.objects.create(sender=second_user1, chat=chat, text="Wie geht es dir?")
+
+        second_user2 = User.objects.get(pk=2)
+        chat = Chat.objects.create(user_1=user, user_2=second_user2)
+        message = Message.objects.create(sender=second_user1, chat=chat, text="Wer bist du?")
+
+        second_user3 = User.objects.get(pk=3)
+        chat = Chat.objects.create(user_1=user, user_2=second_user3)
+        message = Message.objects.create(sender=second_user3, chat=chat, text="Schönen guten Tag")
+        message = Message.objects.create(sender=user, chat=chat, text="Hallo")
+
+        second_user4 = User.objects.get(pk=4)
+        chat = Chat.objects.create(user_1=user, user_2=second_user4)
+        message = Message.objects.create(sender=second_user4, chat=chat, text="Hallo!")
+        message = Message.objects.create(sender=second_user4, chat=chat, text="Hast du das Fussballspiel gestern gesehen?")
+        
+        
+        
+        
+        
+        
+        chat_json = serializers.serialize("json", [chat])
+        return HttpResponse(chat_json, content_type='application/json')
+
+
+    return
