@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
 from chatBackend.views import testHtml, register, get_chats, get_messages, get_users_without_chat, post_chat, post_message, get_users,get_user_id, get_last_message, create_guest_chats
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +33,4 @@ urlpatterns = [
     path("message/get/last", get_last_message),
     path("user_id/get", get_user_id), 
     path("guestchat/add", create_guest_chats)
-
-]
+] + staticfiles_urlpatterns()
