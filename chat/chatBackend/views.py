@@ -145,7 +145,6 @@ def get_last_message(request):
     chat_ids = request.GET.get("chat_ids")
     chat_ids = list(chat_ids.split(","))
     lastMessages = []
-    dummyChat = Chat.objects.get(pk=1)
     dummyMessage = Message.objects.create(text="", sender=user)
     for chat_id in chat_ids:
         messages = Message.objects.filter(chat=chat_id)
