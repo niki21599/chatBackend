@@ -55,6 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://niki21599.github.io',
+]
+
 ROOT_URLCONF = 'chat.urls'
 
 TEMPLATES = [
