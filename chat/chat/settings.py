@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y^h32*yu24@gfcw-j1q)977+vll9jr&alvll!jvou+3mm^1fqc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["34.141.132.195", "127.0.0.1"]
+ALLOWED_HOSTS = ["34.141.132.195", "127.0.0.1", "chat.niklasburg-kanban.de"]
 
 
 # Application definition
